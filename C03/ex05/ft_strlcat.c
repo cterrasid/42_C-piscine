@@ -13,19 +13,24 @@ int ft_strlen(char *str)
 
 unsigned int    ft_strlcat(char *dest, char *src, unsigned int size)
 {
-    int             i;
-    unsigned int    j;
-    unsigned int    len;
+	unsigned int i;
+	unsigned int j;
 
-    j = 0;
-    i = ft_strlen(dest);
-    len = i + ft_strlen(src);
-    if (size == 0)
-        return ft_strlen(src);
-    while (src[j] && j < (size - 1))
-        dest[i++] = src[j++];
-    dest[i] = '\0';
-    return (len);
+	i = ft_strlen(dest);
+	j = 0;
+	if (size < 1)
+		return (ft_strlen(src) + size);
+	while (src[j] && i < size - 1)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	if (size < ft_strlen(dest))
+		return (ft_strlen(src) + size);
+	else
+		return (ft_strlen(dest) + ft_strlen(src));
 }
 
 int main(void)
