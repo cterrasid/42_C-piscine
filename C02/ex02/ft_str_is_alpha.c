@@ -24,6 +24,6 @@ int main(void)
     char    test7[] = "52"; // 0
     char    test8[] = "@*/-+Test"; // 0
     char    test9[] = " "; // 0
-    printf("%i", ft_str_is_alpha(test9));
+    printf("%i", ft_str_is_alpha(test1));
     return (0);
 }
