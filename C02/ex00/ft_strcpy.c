@@ -3,15 +3,25 @@
 
 char	*ft_strcpy(char *dest, char *src)
 {
-    *dest = *src++;
+    int i;
+
+    i = 0;
+    while (src[i])
+    {
+        dest[i] = src[i];
+        i++;
+    }
+    dest[i] = '\0';
 	return (dest);
 }
 
 int main(void)
 {
-    char    s1[] = "Calamar ddd";
-    char    s2[] = "mememe";
-    printf("Original: %s\n", strcpy(s1, s2));
-    printf("Mine: %s\n", ft_strcpy(s1, s2));
+    char    dest1[] = "Dest";
+    char    src1[] = "S";
+    char    dest2[] = "Dest";
+    char    src2[] = "S";
+    printf("Original: %s\n", strcpy(dest1, src1));
+    printf("Mine: %s\n", ft_strcpy(dest2, src2));
     return (0);
 }
