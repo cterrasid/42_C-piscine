@@ -12,16 +12,13 @@ int is_lower(char c)
 
 char	*ft_strlowcase(char *str)
 {
-    int i;
-
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-        i++;
-    }
-    return (str);
+    while(*str)
+    {  
+      if(*str >= 'A' && *str <= 'Z')
+        *str += 32;
+      str++;
+    }  
+    return(str);
 }
 
 char    *ft_strcapitalize(char *str)

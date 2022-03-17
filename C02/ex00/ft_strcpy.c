@@ -18,9 +18,9 @@ char	*ft_strcpy(char *dest, char *src)
 int main(void)
 {
     char    dest1[] = "Dest";
-    char    src1[] = "S";
+    char    src1[] = "Sourceeee";
     char    dest2[] = "Dest";
-    char    src2[] = "S";
+    char    src2[] = "Sourceeee";
     printf("Original: %s\n", strcpy(dest1, src1));
     printf("Mine: %s\n", ft_strcpy(dest2, src2));
     return (0);
