@@ -1,13 +1,13 @@
 #include <unistd.h>
 
-int     ft_strlen(char *str)
+int ft_strlen(char *str)
 {
-    int len;
+    int i;
 
-    len = 0;
-    while (str[len])
-        len++;
-    return (len);
+    i = 0;
+    while(*str++)
+        i++;
+    return (i);
 }
 
 void    ft_putchar(char c)
@@ -28,6 +28,8 @@ int     is_valid_base(char *base)
     while (base[i])
     {
         j = i + 1;
+        if (!(base[i] >= ' ' && base[i] <= '~'))
+            return (0);
         if (base[i] == '-' ||  base[i]== '+')
             return (0);
         while(base[j])
@@ -76,7 +78,7 @@ int main(void)
     char    base_err3[] = "not+2";
     char    base_err4[] = "not3-";
     char    base_err5[] = "abcda";
-    int     number = -157;
+    int     number = 2;
     ft_putnbr_base(number, base_bin);
     write(1, "\n", 1);
     ft_putnbr_base(number, base_hex);

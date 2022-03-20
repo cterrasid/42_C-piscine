@@ -3,43 +3,39 @@
 
 int ft_strlen(char *str)
 {
-    unsigned int    len;
+    unsigned int i;
 
-    len = 0;
-    while(str[len])
-        len++;
-    return (len);
+    i = 0;
+    while(*str++)
+        i++;
+    return (i);
 }
 
 unsigned int    ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int i;
-	unsigned int j;
+	unsigned int	d_len;
+	unsigned int	s_len;
+	int				i;
+	int				j;
 
-	i = ft_strlen(dest);
-	j = 0;
-	if (size < 1)
-		return (ft_strlen(src) + size);
-	while (src[j] && i < size - 1)
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	if (size < ft_strlen(dest))
-		return (ft_strlen(src) + size);
-	else
-		return (ft_strlen(dest) + ft_strlen(src));
+	d_len = ft_strlen(dest);
+	s_len = ft_strlen(src);
+	i = 0;
+	j = d_len;
+	if (size <= d_len)
+		return (s_len + size);
+	while (src[i] && i < size - d_len - 1)
+		dest[j++] = src[i++];
+	dest[j] = '\0';
+	return (d_len + s_len);
 }
 
 int main(void)
 {
     char    dest[] = "Hola";
     char    src[] = "Pelota";
-    unsigned int    size = 0;
+    unsigned int    size = 2;
     printf("Mine: %i\n", ft_strlcat(dest, src, size));
-    printf("Original strncat: %s\n", strncat(dest, src, size));
     printf("dest: %s\n", dest);
     return (0);
 }

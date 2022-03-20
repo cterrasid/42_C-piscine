@@ -3,12 +3,12 @@
 
 int ft_strlen(char *str)
 {
-    int len;
+    int i;
 
-    len = 0;
-    while(str[len])
-        len++;
-    return (len);
+    i = 0;
+    while(*str++)
+        i++;
+    return (i);
 }
 
 char	*ft_strstr(char *str, char *to_find)
